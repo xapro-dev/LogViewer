@@ -20,8 +20,8 @@ class LogParser
      */
 
     const REGEX_DATE_PATTERN     = '\d{4}(-\d{2}){2}';
-    const REGEX_TIME_PATTERN     = '\d{2}(:\d{2}){2}';
-    const REGEX_DATETIME_PATTERN = self::REGEX_DATE_PATTERN.' '.self::REGEX_TIME_PATTERN;
+    const REGEX_TIME_PATTERN     = '(\s\d{2}(:\d{2}){2}|T\d{2}:\d{2}:\d{2}.\d{6}\+00:00)';
+    const REGEX_DATETIME_PATTERN = self::REGEX_DATE_PATTERN.self::REGEX_TIME_PATTERN;
 
     /* -----------------------------------------------------------------
      |  Properties

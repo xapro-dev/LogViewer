@@ -132,7 +132,7 @@ class LogEntry implements Arrayable, Jsonable, JsonSerializable
      */
     private function setDatetime($datetime)
     {
-        $this->datetime = Carbon::createFromFormat('Y-m-d H:i:s', $datetime);
+        $this->datetime = new Carbon($datetime);
 
         return $this;
     }
