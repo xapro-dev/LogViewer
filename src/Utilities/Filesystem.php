@@ -316,7 +316,14 @@ class Filesystem implements FilesystemContract
      */
     private function getLogPath(string $date)
     {
-        $path = $this->storagePath.DIRECTORY_SEPARATOR.$this->prefixPattern.$date.$this->extension;
+        if ($date === 'laravel.log') {
+            $date = '';
+            $prefix = 'laravel';
+        } else {
+            $prefix = 'request-';
+        }
+
+        $path = $this->storagePath.DIRECTORY_SEPARATOR.$prefix.$date.$this->extension;
 
         if ( ! $this->filesystem->exists($path)) {
             throw FilesystemException::invalidPath($path);
